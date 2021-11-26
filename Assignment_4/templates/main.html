@@ -92,7 +92,7 @@
 			<a href="/queries?query=Select * from driver_table where points>=150">Simple Query 5</a>
 			<a href="/queries?query=select circuit.c_name, circuit.location , competes.d_name from circuit left join competes on circuit.c_name=competes.c_name">Complex Query 1</a>
 			<a href="/queries?query=select recruits.t_name, d_name, car, m_name from recruits INNER JOIN teams on recruits.t_name=teams.t_name">Complex Query 2</a>
-			<a href="/queries?query=select * from teams">Complex Query 3</a>
+			<a href="/queries?query=select drivers.d_name, c_name, points, age, podiums  from drivers, (select c_name, competes.d_name, driver_table.points from competes, driver_table where competes.d_name=driver_table.d_name) as circuit_winners where circuit_winners.d_name=drivers.d_name;">Complex Query 3</a>
 			<a href="/queries?query=select * from teams">Complex Query 4</a>
 			<a href="/queries?query=select * from teams">Complex Query 5</a>
 			<a href="/">Logout</a>
