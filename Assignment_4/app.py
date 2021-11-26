@@ -9,13 +9,10 @@ import psycopg2
 app = FastAPI()
 templates = Jinja2Templates(directory="./templates")
 app.mount("/static", StaticFiles(directory="./static"), name="static")
-<<<<<<< HEAD
 conn = psycopg2.connect(
     database="f1", user="postgres", password="123456", host="127.0.0.1", port="8888"
 )
 cur = conn.cursor()
-=======
->>>>>>> c668a8256508c970fc9c41fc96adb64b548a78f4
 ins = re.compile('insert', re.I)
 upd = re.compile('update', re.I)
 
@@ -30,7 +27,7 @@ def home(request: Request, error: str = Query(None), error_reg: str = Query(None
 @app.post("/login")
 def log (username: str = Form(None), passw: str = Form(None)):
     conn = psycopg2.connect(
-        database="f1", user="postgres", password="", host="127.0.0.1", port="5432"
+        database="f1", user="postgres", password="123456", host="127.0.0.1", port="8888"
     )
     cur = conn.cursor()
     if not username or not passw:
@@ -56,7 +53,7 @@ def register(request: Request, error_reg: str = Query(None)):
 @app.post("/register")
 def reg(username: str = Form(None), email: str = Form(None), passw = Form(None)):
     conn = psycopg2.connect(
-        database="f1", user="postgres", password="", host="127.0.0.1", port="5432"
+        database="f1", user="postgres", password="123456", host="127.0.0.1", port="8888"
     )
     cur = conn.cursor()
     if not username or not passw or not email:
@@ -80,7 +77,7 @@ def home_main(request: Request):
 @app.get("/queries")
 def query_(request: Request, query: str = Query(None)):
     conn = psycopg2.connect(
-        database="f1", user="postgres", password="", host="127.0.0.1", port="5432"
+        database="f1", user="postgres", password="123456", host="127.0.0.1", port="8888"
     )
     cur = conn.cursor()
     try:
