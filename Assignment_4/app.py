@@ -86,7 +86,28 @@ def query_(request: Request, query: str = Query(None)):
                 "query": query,
                 "rows": rows,
                 "columns": [col[0] for col in cur.description],
+                "error": ""
             },
         )
-    except Exception as e:
-        print(e)
+    except (psycopg2.errors.SyntaxError):
+        return templates.TemplateResponse(
+            "execution.html",
+            {
+                "request": request,
+                "query": query,
+                "rows": [],
+                "columns": [],
+                "error": "Invalid query"
+            },
+        )
+    except (psycopg2.errors.UndefinedTable):
+        return templates.TemplateResponse(
+            "execution.html",
+            {
+                "request": request,
+                "query": query,
+                "rows": [],
+                "columns": [],
+                "error": "Undefined Table"
+            },
+        )
