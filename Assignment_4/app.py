@@ -9,7 +9,7 @@ app = FastAPI()
 templates = Jinja2Templates(directory="./templates")
 app.mount("/static", StaticFiles(directory="./static"), name="static")
 conn = psycopg2.connect(
-    database="f1", user="postgres", password="", host="127.0.0.1", port="5432"
+    database="f1", user="postgres", password="123456", host="127.0.0.1", port="8888"
 )
 cur = conn.cursor()
 ins = re.compile('insert', re.I)
