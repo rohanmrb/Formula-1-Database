@@ -1,3 +1,13 @@
+drop database f1;
+create database f1;
+\c f1
+
+create table users(
+  username varchar(50) unique not null PRIMARY KEY,
+  email varchar(50) unique not null,
+  password varchar(50) not null Constraint password check (char_length(password) >=8)
+);
+
 CREATE TABLE Manufactur
 (
   Engineer CHAR(32) NOT NULL,

@@ -1,3 +1,4 @@
+\c f1
 INSERT INTO Manufactur VALUES ('Peter Bonnington', 'Mercedes', 'Germany');
 INSERT INTO Manufactur VALUES ('Gianpiero Lambiase', 'RedBull', 'Austria');
 INSERT INTO Manufactur VALUES ('Jock Clear', 'Ferrari', 'Italy');
